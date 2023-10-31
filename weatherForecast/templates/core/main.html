@@ -5,25 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
+    <title>Weather</title>
 </head>
 
 <body>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <form method="POST">
-                    <div class="name-city">
-                        <input class="input" type="text" placeholder="City Name">
-                    </div>
-                    <div class="button-div">
-                        <button class="button">
-                            Add City
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <h1>Weather Report</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="city">Enter City: </label>
+        <input type="text" id="city" name="city" required>
+        <input type="submit" value="Get Weather">
+    </form>
+    {% if weather_data %}
+    <h2>Weather in {{ weather_data.city }}:</h2>
+    <p>Temperature: {{ weather_data.temperature }} °C</p>
+    <p>Description: {{ weather_data.description }}</p>
+    {% else %}
+    <p>No data available for the provided city.</p>
+    {% endif %}
 </body>
 
 </html>
