@@ -12,10 +12,18 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import secrets
+import string
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+def generate_secret_key(length=50):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    secret_key = ''.join(secrets.choice(characters) for i in range(length))
+    return secret_key
+
+print(generate_secret_key())
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv()
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = generate_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
