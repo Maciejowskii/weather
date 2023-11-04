@@ -18,10 +18,21 @@ def home(request):
             temperature_kelvin = data['main']['temp']
             temperature_celsius = temperature_kelvin - 273.15
             temperature_celsius = int(temperature_celsius)
+            if temperature_celsius <= 10:
+                feel = 'cold'
+                clothes = 'warm jacket or hoodie'
+            if temperature_celsius > 10 and temperature_celsius < 25:
+                feel = 'normal'
+                clothes = 'hoodie or T-shirt'
+            if temperature_celsius > 25:
+                feel = 'warm'
+                clothes = 'T-shirt'
             weather_data = {
                 'city': city,
                 'temperature': temperature_celsius,
                 'description': data['weather'][0]['description'],
+                'feel': feel,
+                'clothes': clothes,
             }
         else:
             weather_data = None

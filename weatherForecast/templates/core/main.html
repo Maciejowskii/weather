@@ -23,6 +23,12 @@
     {% else %}
     <p>No data available for the provided city.</p>
     {% endif %}
+    {% if weather_data %}
+    <p>It's outside {{ weather_data.feel }}</p>
+    <p>You should wear {{ weather_data.clothes }}</p>
+    {% else %}
+    <p>No data available.</p>
+    {% endif %}
 </body>
 
 </html>
