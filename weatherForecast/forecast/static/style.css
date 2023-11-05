@@ -24,6 +24,9 @@ body {background-color: white;
     font-weight: 350;
     line-height: normal;
 }
+#CitySearchName{
+    vertical-align: -7px;
+}
 #CityInfoTop{
     color: #094067;
     font-family: 'Lilita One', sans-serif;
@@ -31,6 +34,7 @@ body {background-color: white;
     font-style: normal;
     font-weight: 200;
     line-height: normal;
+
 }
 #CityInfo{
     color: #0095ff;
