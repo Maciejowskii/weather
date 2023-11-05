@@ -26,7 +26,7 @@
             <input type="submit" value="Get Weather">
         </form>
     </div>
-    <div id=""
+    <div id="arsenal">
         {% if weather_data %}
         <h2>Weather in {{ weather_data.city }}:</h2>
         <p>Temperature: {{ weather_data.temperature }} °C</p>
@@ -41,6 +41,7 @@
         {% else %}
         <p>No data available.</p>
         {% endif %}
+    </div>
     </center>
 </body>
 
