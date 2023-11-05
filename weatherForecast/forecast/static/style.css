@@ -3,6 +3,7 @@
 body {background-color: white;
     background-image: url(ttten.svg);
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #LogoTop{
