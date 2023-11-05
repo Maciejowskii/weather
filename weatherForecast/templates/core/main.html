@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TrueWeather</title>
     <link rel="stylesheet" href="{% static '/style.css' %}">
-    <link rel="Shortcut icon" href="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&" />
+    <link rel="Shortcut icon"
+        href="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&" />
 </head>
 
 <body>
     <center>
-    <div id="LogoTop">
+        <div id="LogoTop">
         <h1>TrueWeather</h1>
-    </div>
+        </div>
     
     <form method="post">
-        {% csrf_token %}
-        <label for="city">Enter City: </label>
-        <input type="text" id="city" name="city" required>
-        <input type="submit" value="Get Weather">
-    </form>
-    {% if weather_data %}
-    <h2>Weather in {{ weather_data.city }}:</h2>
-    <p>Temperature: {{ weather_data.temperature }} °C</p>
-    <p>Description: {{ weather_data.description }}</p>
-    {% else %}
-    <p>No data available for the provided city.</p>
-    {% endif %}
-    {% if weather_data %}
-    <p>It's outside {{ weather_data.feel }}</p>
-    <p>You should wear {{ weather_data.clothes }}</p>
-    {% else %}
-    <p>No data available.</p>
-    {% endif %}
-</center>
+            {% csrf_token %}
+            <label for="city">Enter City: </label>
+            <input type="text" id="city" name="city" required>
+            <input type="submit" value="Get Weather">
+        </form>
+        {% if weather_data %}
+        <h2>Weather in {{ weather_data.city }}:</h2>
+        <p>Temperature: {{ weather_data.temperature }} °C</p>
+        <p>Description: {{ weather_data.description }}</p>
+        {% else %}
+        <p>No data available for the provided city.</p>
+        {% endif %}
+        {% if weather_data %}
+        <p>Perceptible temperature is {{ weather_data.feels_like }} °C</p>
+        <p>It's outside {{ weather_data.feel }}</p>
+        <p>You should wear {{ weather_data.clothes }}</p>
+        {% else %}
+        <p>No data available.</p>
+        {% endif %}
+    </center>
 </body>
 
 </html>
