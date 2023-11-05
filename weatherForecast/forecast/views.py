@@ -17,6 +17,9 @@ def home(request):
         if data['cod'] == 200:
             temperature_kelvin = data['main']['temp']
             temperature_celsius = temperature_kelvin - 273.15
+            temperature_feel_kelvin = data['main']["feels_like"]
+            temperature_feel_celsius = temperature_feel_kelvin - 273.15
+            temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
             if temperature_celsius <= 10:
                 feel = 'cold'
@@ -33,6 +36,7 @@ def home(request):
                 'description': data['weather'][0]['description'],
                 'feel': feel,
                 'clothes': clothes,
+                "feels_like": temperature_feel_celsius,
             }
         else:
             weather_data = None
