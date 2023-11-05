@@ -10,15 +10,13 @@ def home(request):
         api_key = os.environ.get('API_KEY')
 
 
-        url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
+        url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
         response = requests.get(url)
         data = response.json()
 
         if data['cod'] == 200:
-            temperature_kelvin = data['main']['temp']
-            temperature_celsius = temperature_kelvin - 273.15
-            temperature_feel_kelvin = data['main']["feels_like"]
-            temperature_feel_celsius = temperature_feel_kelvin - 273.15
+            temperature_feel_celsius = data['main']['temp']
+            temperature_celsius = data['main']["feels_like"]
             temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
             if temperature_celsius <= 10:
