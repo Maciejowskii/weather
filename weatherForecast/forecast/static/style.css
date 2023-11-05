@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
-body {background-color: white;}
+body {background-color: white;
+    background-image: url(ttten.svg);
+    background-repeat: no-repeat;
+}
 
 #LogoTop{
     color: #094067;
