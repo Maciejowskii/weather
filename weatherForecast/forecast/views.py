@@ -19,7 +19,13 @@ def home(request):
             temperature_celsius = data['main']["feels_like"]
             temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
-            if temperature_celsius <= 10:
+            if temperature_celsius <= -10:
+                feel = 'very cold'
+                clothes = "don't leave the house, take a blanket, if you have an AMD processor, open the computer case"
+            if temperature_celsius <= 0 < -9:
+                feel = 'hoarfrost'
+                clothes = 'Winter Jacket'
+            if temperature_celsius <= 10 < 1:
                 feel = 'cold'
                 clothes = 'warm jacket or hoodie'
             if temperature_celsius > 10 and temperature_celsius < 25:
