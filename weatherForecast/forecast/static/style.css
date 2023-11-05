@@ -4,7 +4,9 @@ body {background-color: white;
     background-image: url(ttten.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
+
 
 #LogoTop{
     color: #094067;
@@ -17,7 +19,15 @@ body {background-color: white;
 #CitySearch{
     color: #094067;
     font-family: 'Lilita One', sans-serif;
-    font-size: 30px;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+#arsenal{
+    color: rgb(4, 86, 163);
+    font-family: 'Lilita One', sans-serif;
+    font-size: 25px;
     font-style: normal;
     font-weight: 200;
     line-height: normal;
