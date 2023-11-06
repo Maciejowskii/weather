@@ -25,13 +25,13 @@ def home(request):
             if temperature_celsius < 1 and temperature_celsius > -10:
                 feel = 'hoarfrost'
                 clothes = 'Winter Jacket'
-            if temperature_celsius < 10 and temperature_celsius > 1:
+            if temperature_celsius < 10 and temperature_celsius >= 1:
                 feel = 'cold'
                 clothes = 'warm jacket or hoodie'
-            if temperature_celsius > 10 and temperature_celsius < 25:
+            if temperature_celsius >= 10 and temperature_celsius < 25:
                 feel = 'normal'
                 clothes = 'hoodie or T-shirt'
-            if temperature_celsius > 25:
+            if temperature_celsius >= 25:
                 feel = 'warm'
                 clothes = 'T-shirt'
             weather_data = {
