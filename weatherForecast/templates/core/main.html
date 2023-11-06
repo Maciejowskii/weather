@@ -14,10 +14,15 @@
 
 <body>
     <center>
+        
         <div id="LogoTop">
             <img src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
-            <h1>TrueWeather</h1>
+            
         </div>
+        <div id="box">
+            <div id="LogoTop">
+            <h1>TrueWeather</h1>
+            </div>
     <div id="CitySearch">
     <form method="post">
             {% csrf_token %}
@@ -44,6 +49,7 @@
         <p>No data available.</p>
         {% endif %}
     </div>
+</div>
     </center>
 </body>
 
