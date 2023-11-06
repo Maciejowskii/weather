@@ -102,7 +102,7 @@ body {background-color: white;
     margin-bottom: 0;
     width: 150px;
     height: 75px;
-    background-image: url('PixelCar5.png'); /* Zmień 'car.png' na ścieżkę do obrazka autka */
+    background-image: url('PixelCar5.png');
     background-size: cover;
     position: absolute;
     left: 0;
