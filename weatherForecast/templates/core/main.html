@@ -14,77 +14,78 @@
 
 <body>
     <center>
-        
+
         <div id="LogoTop">
-            <img src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
-            
+            <img
+                src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
+
         </div>
         <div id="box">
             <div id="LogoTop">
-            <h1>TrueWeather</h1>
+                <h1>TrueWeather</h1>
             </div>
-    <div id="CitySearch">
-    <form method="post">
-            {% csrf_token %}
-            <label for="city" id="CitySearchName">Enter City: </label>
-            <input type="text" id="city" name="city" required>
-            <input type="submit" id="button" value="Get Weather">
-        </form>
-    </div>
-    <div id="CityInfoTop">
-        {% if weather_data %}
-        <h2>Weather in {{ weather_data.city }}:</h2>
-    </div>
-    <div id="CityInfo">
-        <p>Temperature: {{ weather_data.temperature }} °C</p>
-        <p>How it is: {{ weather_data.description }}</p>
-        {% else %}
-        <p>No data available for the provided city.</p>
-        {% endif %}
-        {% if weather_data %}
-        <p>Perceptible temperature is {{ weather_data.feels_like }} °C</p>
-        <p>It's outside {{ weather_data.feel }}</p>
-        <p>You should wear {{ weather_data.clothes }}</p>
-        {% else %}
-        <p>No data available.</p>
-        {% endif %}
-    </div>
-</div>
-<div class="road">
-        <div class="car" id="car"></div>
-    </div>
-    <button id="startButton">Autko :D</button>
-  <script>
-const car = document.getElementById("car");
-const startButton = document.getElementById("startButton");
-let isMoving = false;
+            <div id="CitySearch">
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="city" id="CitySearchName">Enter City: </label>
+                    <input type="text" id="city" name="city" required>
+                    <input type="submit" id="button" value="Get Weather">
+                </form>
+            </div>
+            <div id="CityInfoTop">
+                {% if weather_data %}
+                <h2>Weather in {{ weather_data.city }}:</h2>
+            </div>
+            <div id="CityInfo">
+                <p>Temperature: {{ weather_data.temperature }} °C</p>
+                <p>How it is: {{ weather_data.description }}</p>
+                {% else %}
+                <p>No data available for the provided city.</p>
+                {% endif %}
+                {% if weather_data %}
+                <p>Perceptible temperature is {{ weather_data.feels_like }} °C</p>
+                <p>It's outside {{ weather_data.feel }}</p>
+                <p>You should wear {{ weather_data.clothes }}</p>
+                {% else %}
+                <p>No data available.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="road">
+            <div class="car" id="car"></div>
+        </div>
+        <button id="startButton">Chmurka</button>
+        <script>
+            const car = document.getElementById("car");
+            const startButton = document.getElementById("startButton");
+            let isMoving = false;
 
-startButton.addEventListener("click", () => {
-    if (!isMoving) {
-        moveCar();
-        isMoving = true;
-    }
-});
+            startButton.addEventListener("click", () => {
+                if (!isMoving) {
+                    moveCar();
+                    isMoving = true;
+                }
+            });
 
-function moveCar() {
-    const roadWidth = window.innerWidth;
-    car.style.left = "-100px"; // Inicjalna pozycja autka
+            function moveCar() {
+                const roadWidth = window.innerWidth;
+                car.style.left = "-100px"; // Inicjalna pozycja autka
 
-    const animationDuration = 4000; // Czas trwania animacji (4 sekundy)
+                const animationDuration = 4000; // Czas trwania animacji (4 sekundy)
 
-    car.style.transition = `left ${animationDuration / 1000}s linear`;
-    car.style.left = `${roadWidth}px`;
+                car.style.transition = `left ${animationDuration / 1000}s linear`;
+                car.style.left = `${roadWidth}px`;
 
-    setTimeout(() => {
-        car.style.transition = "none";
-        car.style.left = "-100px";
-        setTimeout(() => {
-            moveCar();
-        }, 500);
-    }, animationDuration);
-}
+                setTimeout(() => {
+                    car.style.transition = "none";
+                    car.style.left = "-100px";
+                    setTimeout(() => {
+                        moveCar();
+                    }, 500);
+                }, animationDuration);
+            }
 
-  </script>
+        </script>
     </center>
 </body>
 
