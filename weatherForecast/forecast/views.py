@@ -21,7 +21,7 @@ def home(request):
             temperature_celsius = int(temperature_celsius)
             if temperature_celsius <= -10:
                 feel = 'very cold'
-                clothes = "don't leave the house, take a blanket, if you have an AMD processor, open the computer case"
+                clothes = "comfy hoodie, don't leave the house, take a blanket, if you have an AMD processor, open the computer case"
             if temperature_celsius < 1 and temperature_celsius > -10:
                 feel = 'hoarfrost'
                 clothes = 'Winter Jacket'
