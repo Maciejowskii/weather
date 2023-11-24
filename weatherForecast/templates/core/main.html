@@ -15,10 +15,8 @@
 <body>
     <center>
 
-        <div id="LogoTop">
-            <img
-                src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
-
+        <div id="Logo">
+            <img src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
         </div>
         <div class="road">
             <div class="car" id="car"></div>
@@ -80,7 +78,7 @@
             setTimeout(() => {
                 car.style.transition = "none";
                 car.style.left = "-100px";
-                isMoving = false; // Set isMoving to false to prevent further animation
+                isMoving = false;
             }, animationDuration);
             }
 
