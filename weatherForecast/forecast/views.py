@@ -33,6 +33,18 @@ def home(request):
             else:
                 ifClouds = False
 
+            # cloudStatus:
+            #     1 - rain
+            #     2 - cloudy
+            #     3 - sunny
+
+            if ifRain == True and ifClouds == True:
+                cloudStatus = 1
+            elif ifRain == False and ifClouds == True:
+                cloudStatus = 2
+            else:
+                cloudStatus = 3
+
             if temperature_celsius <= -10:
                 feel = 'very cold'
                 clothes = "comfy hoodie, don't leave the house, take a blanket, if you have an AMD processor, open the computer case"
@@ -57,6 +69,7 @@ def home(request):
                 'feels_like': temperature_feel_celsius,
                 'rain': ifRain,
                 'clouds': ifClouds,
+                'cloudStatus': cloudStatus
             }
         else:
             weather_data = None
