@@ -17,8 +17,22 @@ def home(request):
         if data['cod'] == 200:
             temperature_feel_celsius = data['main']['temp']
             temperature_celsius = data['main']["feels_like"]
+            clouds = data['clouds']['all']
+            clouds = int(clouds)
+            rain = data['main']['humidity']
+            rain = int(rain)
             temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
+            if rain > 50:
+                ifRain = True
+            else:
+                ifRain = False
+
+            if clouds > 50:
+                ifClouds = True
+            else:
+                ifClouds = False
+
             if temperature_celsius <= -10:
                 feel = 'very cold'
                 clothes = "comfy hoodie, don't leave the house, take a blanket, if you have an AMD processor, open the computer case"
@@ -40,7 +54,9 @@ def home(request):
                 'description': data['weather'][0]['description'],
                 'feel': feel,
                 'clothes': clothes,
-                "feels_like": temperature_feel_celsius,
+                'feels_like': temperature_feel_celsius,
+                'rain': ifRain,
+                'clouds': ifClouds,
             }
         else:
             weather_data = None
