@@ -16,7 +16,8 @@
     <center>
 
         <div id="Logo">
-            <img src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
+            <img
+                src="https://cdn.discordapp.com/attachments/1150849159767801856/1170794114871214231/ri_cloud-fill.png?ex=655a55fd&is=6547e0fd&hm=75ba0b69baffeb34b1f06ba93803bae8daccf464cc3029075c5e2a96fe40a9e1&">
         </div>
         <div class="road">
             <div class="car" id="car"></div>
@@ -33,6 +34,24 @@
                     <input type="submit" id="button" value="Get Weather">
                 </form>
             </div>
+            {% if weather_data.cloudStatus == 1 %}
+            Czyste Niebo
+            {% endif %}
+            {% if weather_data.cloudStatus == 2 %}
+            Burza
+            {% endif %}
+            {% if weather_data.cloudStatus == 3 %}
+            Deszcz
+            {% endif %}
+            {% if weather_data.cloudStatus == 4 %}
+            Snieg
+            {% endif %}
+            {% if weather_data.cloudStatus == 5 %}
+            Chmury
+            {% endif %}
+            {% if weather_data.cloudStatus == 6 %}
+            Inne
+            {% endif %}
             <div id="CityInfoTop">
                 {% if weather_data %}
                 <h2>Weather in {{ weather_data.city }}:</h2>
@@ -52,7 +71,7 @@
                 {% endif %}
             </div>
         </div>
-        
+
         <button id="startButton">Chmurka</button>
         <script>
             const car = document.getElementById("car");
@@ -60,26 +79,26 @@
             let isMoving = false;
 
             startButton.addEventListener("click", () => {
-             if (!isMoving) {
-                 moveCar();
-                isMoving = true;
-             }
+                if (!isMoving) {
+                    moveCar();
+                    isMoving = true;
+                }
             });
 
             function moveCar() {
-            const roadWidth = window.innerWidth;
-            car.style.left = "-100px";
-
-            const animationDuration = 4000;
-
-            car.style.transition = `left ${animationDuration / 1000}s linear`;
-            car.style.left = `${roadWidth}px`;
-
-            setTimeout(() => {
-                car.style.transition = "none";
+                const roadWidth = window.innerWidth;
                 car.style.left = "-100px";
-                isMoving = false;
-            }, animationDuration);
+
+                const animationDuration = 4000;
+
+                car.style.transition = `left ${animationDuration / 1000}s linear`;
+                car.style.left = `${roadWidth}px`;
+
+                setTimeout(() => {
+                    car.style.transition = "none";
+                    car.style.left = "-100px";
+                    isMoving = false;
+                }, animationDuration);
             }
 
         </script>

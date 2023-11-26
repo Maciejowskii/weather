@@ -21,29 +21,30 @@ def home(request):
             clouds = int(clouds)
             rain = data['main']['humidity']
             rain = int(rain)
+            main = data['weather'][0]['main']
             temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
-            if rain > 50:
-                ifRain = True
-            else:
-                ifRain = False
 
-            if clouds > 50:
-                ifClouds = True
+            if main == 'Clear':
+                cloudStatus = 1
+            elif main == 'Thunderstorm':
+                cloudStatus = 2
+            elif main == 'Rain':
+                cloudStatus = 3
+            elif main == 'Snow':
+                cloudStatus = 4
+            elif main == "Clouds":
+                cloudStatus = 5
             else:
-                ifClouds = False
+                cloudStatus = 6
 
             # cloudStatus:
-            #     1 - rain
-            #     2 - cloudy
-            #     3 - sunny
-
-            if ifRain == True and ifClouds == True:
-                cloudStatus = 1
-            elif ifRain == False and ifClouds == True:
-                cloudStatus = 2
-            else:
-                cloudStatus = 3
+            #     1 - clear
+            #     2 - thunderstorm
+            #     3 - rainy
+            #     4 - snowy
+            #     5 - cloudy
+            #     6 - other
 
             if temperature_celsius <= -10:
                 feel = 'very cold'
@@ -67,8 +68,8 @@ def home(request):
                 'feel': feel,
                 'clothes': clothes,
                 'feels_like': temperature_feel_celsius,
-                'rain': ifRain,
-                'clouds': ifClouds,
+                # 'rain': ifRain,
+                # 'clouds': ifClouds,
                 'cloudStatus': cloudStatus
             }
         else:
