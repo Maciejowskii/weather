@@ -56,6 +56,17 @@
                 {% if weather_data %}
                 <h2>Weather in {{ weather_data.city }}:</h2>
             </div>
+            <style>
+                .nvm-jakis-backgorund {
+                    background-image: {
+                            {
+                            weather_data.image
+                        }
+                    }
+                }
+
+                ;
+            </style>
             <div id="CityInfo">
                 <p>Temperature: {{ weather_data.temperature }} °C</p>
                 <p>How it is: {{ weather_data.description }}</p>
@@ -103,6 +114,7 @@
 
         </script>
     </center>
+
 </body>
 
 </html>

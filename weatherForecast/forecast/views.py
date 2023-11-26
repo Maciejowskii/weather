@@ -27,16 +27,22 @@ def home(request):
 
             if main == 'Clear':
                 cloudStatus = 1
+                image = 'sunny.jpg'
             elif main == 'Thunderstorm':
                 cloudStatus = 2
+                image = 'thunder.jpg'
             elif main == 'Rain':
                 cloudStatus = 3
+                image = 'rain.jpg'
             elif main == 'Snow':
                 cloudStatus = 4
+                image = 'snow.jpg'
             elif main == "Clouds":
                 cloudStatus = 5
+                image = 'clouds.jpg'
             else:
                 cloudStatus = 6
+                image = 'other.jpg'
 
             # cloudStatus:
             #     1 - clear
@@ -70,7 +76,8 @@ def home(request):
                 'feels_like': temperature_feel_celsius,
                 # 'rain': ifRain,
                 # 'clouds': ifClouds,
-                'cloudStatus': cloudStatus
+                'cloudStatus': cloudStatus,
+                'image': image,
             }
         else:
             weather_data = None
@@ -78,3 +85,4 @@ def home(request):
         return render(request, 'main.html', {'weather_data': weather_data})
 
     return render(request, 'main.html', {'weather_data': None})
+    
