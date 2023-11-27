@@ -22,6 +22,7 @@ def home(request):
             rain = data['main']['humidity']
             rain = int(rain)
             main = data['weather'][0]['main']
+            country = data['sys']['country']
             temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
 
@@ -78,6 +79,7 @@ def home(request):
                 # 'clouds': ifClouds,
                 'cloudStatus': cloudStatus,
                 'image': image,
+                'country': country,
             }
         else:
             weather_data = None
