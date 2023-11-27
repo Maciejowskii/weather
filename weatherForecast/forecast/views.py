@@ -31,7 +31,7 @@ def home(request):
             elif main == 'Thunderstorm':
                 cloudStatus = 2
                 image = 'thunder.jpg'
-            elif main == 'Rain':
+            elif main == 'Rain' or main == 'Drizzle':
                 cloudStatus = 3
                 image = 'rain.jpg'
             elif main == 'Snow':
