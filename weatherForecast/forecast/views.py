@@ -21,29 +21,36 @@ def home(request):
             clouds = int(clouds)
             rain = data['main']['humidity']
             rain = int(rain)
+            main = data['weather'][0]['main']
             temperature_feel_celsius = int(temperature_feel_celsius)
             temperature_celsius = int(temperature_celsius)
-            if rain > 50:
-                ifRain = True
-            else:
-                ifRain = False
 
-            if clouds > 50:
-                ifClouds = True
+            if main == 'Clear':
+                cloudStatus = 1
+                image = 'sunny.jpg'
+            elif main == 'Thunderstorm':
+                cloudStatus = 2
+                image = 'thunder.jpg'
+            elif main == 'Rain':
+                cloudStatus = 3
+                image = 'rain.jpg'
+            elif main == 'Snow':
+                cloudStatus = 4
+                image = 'snow.jpg'
+            elif main == "Clouds":
+                cloudStatus = 5
+                image = 'clouds.jpg'
             else:
-                ifClouds = False
+                cloudStatus = 6
+                image = 'other.jpg'
 
             # cloudStatus:
-            #     1 - rain
-            #     2 - cloudy
-            #     3 - sunny
-
-            if ifRain == True and ifClouds == True:
-                cloudStatus = 1
-            elif ifRain == False and ifClouds == True:
-                cloudStatus = 2
-            else:
-                cloudStatus = 3
+            #     1 - clear
+            #     2 - thunderstorm
+            #     3 - rainy
+            #     4 - snowy
+            #     5 - cloudy
+            #     6 - other
 
             if temperature_celsius <= -10:
                 feel = 'very cold'
@@ -67,9 +74,10 @@ def home(request):
                 'feel': feel,
                 'clothes': clothes,
                 'feels_like': temperature_feel_celsius,
-                'rain': ifRain,
-                'clouds': ifClouds,
-                'cloudStatus': cloudStatus
+                # 'rain': ifRain,
+                # 'clouds': ifClouds,
+                'cloudStatus': cloudStatus,
+                'image': image,
             }
         else:
             weather_data = None
@@ -77,3 +85,4 @@ def home(request):
         return render(request, 'main.html', {'weather_data': weather_data})
 
     return render(request, 'main.html', {'weather_data': None})
+    
