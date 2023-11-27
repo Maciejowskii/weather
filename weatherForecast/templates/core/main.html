@@ -47,7 +47,9 @@
             Snieg
             {% endif %}
             {% if weather_data.cloudStatus == 5 %}
-            Chmury
+            <script>
+                document.getElementById("box").setAttribute("id", "box-cloudy");
+            </script>
             {% endif %}
             {% if weather_data.cloudStatus == 6 %}
             Inne

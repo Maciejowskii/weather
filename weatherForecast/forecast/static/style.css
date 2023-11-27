@@ -17,8 +17,15 @@ body {background-color: white;
     border-radius: 24px;
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  }
-
+}
+#box-cloudy{
+    margin-top: -50px;
+    width: 800px;
+    height: 650px;
+    border-radius: 24px;
+    background-image: url(background_weather_cloudy.png);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 #LogoTop{
     color: #094067;
     font-family: 'Lilita One', sans-serif;
