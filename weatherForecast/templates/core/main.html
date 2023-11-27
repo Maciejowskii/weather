@@ -34,6 +34,12 @@
                     <input type="submit" id="button" value="Get Weather">
                 </form>
             </div>
+            {% if weather_data.country == ua %}
+            HIELOL
+            {% endif %}
+            {% if weather_data.country == ua %}
+            HIELOL
+            {% endif %}
             {% if weather_data.cloudStatus == 1 %}
             <script>
                 document.getElementById("box").setAttribute("id", "box-clear_sky");
