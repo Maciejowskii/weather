@@ -35,16 +35,24 @@
                 </form>
             </div>
             {% if weather_data.cloudStatus == 1 %}
-            Czyste Niebo
+            <script>
+                document.getElementById("box").setAttribute("id", "box-clear_sky");
+            </script>
             {% endif %}
             {% if weather_data.cloudStatus == 2 %}
-            Burza
+            <script>
+                document.getElementById("box").setAttribute("id", "box-storm");
+            </script>
             {% endif %}
             {% if weather_data.cloudStatus == 3 %}
-            Deszcz
+            <script>
+                document.getElementById("box").setAttribute("id", "box-rain");
+            </script>
             {% endif %}
             {% if weather_data.cloudStatus == 4 %}
-            Snieg
+            <script>
+                document.getElementById("box").setAttribute("id", "box-snow");
+            </script>
             {% endif %}
             {% if weather_data.cloudStatus == 5 %}
             <script>
@@ -52,7 +60,9 @@
             </script>
             {% endif %}
             {% if weather_data.cloudStatus == 6 %}
-            Inne
+            <script>
+                document.getElementById("box").setAttribute("id", "box-other");
+            </script>
             {% endif %}
             <div id="CityInfoTop">
                 {% if weather_data %}
